@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    padding-top: 10vw;
+    padding-left: 10vw;
+    padding-bottom: 5px;
+    position: sticky;
+    width: 100%;
+    top: 0px;
+    background-color: #fffffff6;
+    user-select: none;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .header {
+        background-color: #ffffffbd;
+        backdrop-filter: blur(20px);
+    }
+}
+
+.headerItems {
+    display: none;
+}
+
+.hamburger {
+    width: 4vw;
+}
+.headerItems > li > a {
+    text-decoration: none;
+    color: black;
+}
+
+.link {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        font-size: 1.2rem;
+        height: 60px;
+        padding: 40px;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .headerItems {
+        display: flex;
+        list-style: none;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: -0.05em;
+        text-align: center;
+    }
+    .headerItems > li {
+        padding-inline: 25px;
+    }
+    .hamburger {
+        display: none;
+    }
+}

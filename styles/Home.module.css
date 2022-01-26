@@ -1,0 +1,54 @@
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.box_fluid {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  margin-top: 20%;
+}
+
+.main > .box_fluid > h1 {
+  font-size: 2rem;
+  margin: 0 0 40px 0;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.logo {
+  width: 50vw;
+  margin: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  
+  .box_fluid {
+    margin-top: 60px;
+    width: 60%;
+  }
+  
+  
+  .main > .box_fluid > h1 {
+    font-size: 3.5rem;
+    line-height: 58px;
+  }
+
+  .logo {
+    height: 6rem;
+  }
+}

@@ -1,0 +1,23 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: white;
+}
+a {
+  color: #d30f54;
+  text-underline-offset: 1px;
+}
+
+a:hover {
+  color: #ee115f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.active {
+  font-weight: 700;
+}
