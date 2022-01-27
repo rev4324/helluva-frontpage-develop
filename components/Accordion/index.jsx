@@ -86,12 +86,12 @@ export default function Accordion(props) {
                     return (
                         <Row key={elem.question}>
                             <Question onClick={() => opener(index)} key={index}>
-                                <h3 style={click === index ? { color: '--foreground' } : null}>
+                                <h3 style={click === index ? { color: 'var(--foreground-main)' } : null}>
                                     <elem.question />
                                 </h3>
                                 <motion.span className='iconContainer'>
                                     {click === index ?
-                                        <MdKeyboardArrowDown style={click === index ? { color: '#000' } : null} className='icon' /> :
+                                        <MdKeyboardArrowDown style={click === index ? { color: 'var(--foreground-main)' } : null} className='icon' /> :
                                         <MdKeyboardArrowUp className='icon' />
                                     }
                                 </motion.span>
