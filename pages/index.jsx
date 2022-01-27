@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 import Head from 'next/head'
 import Accordion from '../components/Accordion'
-import HentaiLogo from '../public/svg/hentaios.svg'
+import ScrollableLogo from '../components/ScrollableLogo'
+import HentaiLogo from '../public/svg/logotype.svg'
+import Bloody from '../public/svg/bloody.svg'
+import Xda from '../public/svg/xda.svg'
+import Xiaomeme from '../public/svg/meme.svg'
+import Bb from '../public/svg/bb.svg'
 
 const Main = styled.div`
   display: flex;
@@ -14,9 +19,9 @@ const Box = styled.main`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 80vmin;
   align-items: center;
   margin-top: 20%;
+  margin-bottom: 10%;
   @media only screen and (min-width: 768px) {
     margin-top: 60px;
     width: 60%;
@@ -34,6 +39,13 @@ const Box = styled.main`
     text-align: center;
     padding-bottom: 10px;
   }
+  .distort {
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 10px;
+  }
 `
 const Logo = styled(HentaiLogo)`
   min-width: 50vw;
@@ -42,6 +54,31 @@ const Logo = styled(HentaiLogo)`
   margin: 40px;
   @media only screen and (min-width: 768px) {
     min-height: 3rem;
+  }
+`
+
+const SecondaryHeaders = styled.a`
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 250px;
+  h1 {
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60,97px;
+    margin-block: 5px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    color: #696969;
+  }
+  .first {
+    color: #D30F54;
+  }
+  .bloody {
+    color: transparent;
   }
 `
 
@@ -55,10 +92,16 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
+        <ScrollableLogo />
         <Box>
           <Logo />
-            <h1 className='header'>Get started with your lewd phone.</h1>
-          <Accordion /> 
+          <h1 className='header'>Get started with your lewd phone.</h1>
+          <Accordion />
+          <SecondaryHeaders href="https://goolag.com" target={"_blank"}>
+            <h1 className='first'>Leave your boring life, Join us in the <Bloody id='bloody' className='distort'/> school.</h1>
+            <h1 className='second'>You’ll not regret it, unlike what <Xda className='distort' id="xda"/> or <Xiaomeme className='distort' id="meme"/> said.</h1>
+            <h1 className='third'>Also watch Otokonoko Delivery.</h1>
+          </SecondaryHeaders>
         </Box>
 
       </Main>

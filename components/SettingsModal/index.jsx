@@ -83,9 +83,8 @@ export default function SettingsModal({ toggleSettings, theme, setTheme }) {
             <Container>
                 <Close
                     whileHover={{ color: '#d30f54', scale: 1.05 }}
-                    whileTap={{ scale: 0.99 }}
-                    transition={{ type: 'spring', duration: 0.3 }} 
-                    exit="exit"
+                    whileTap={{ scale : 0.99 }}
+                    transition={{ type: 'spring', duration: 0.3 }}
                 >
                     <MdClose onClick={toggleSettings} className="icon" />
                 </Close>

@@ -1,6 +1,7 @@
 import styles from './Header.module.css'
 import Link from '../Link'
 import { motion } from 'framer-motion'
+import ScrollableLogo from '../ScrollableLogo'
 
 export default function Header() {
     return (
@@ -30,7 +31,7 @@ export default function Header() {
                 <li>
                     <Link href="/team" activeClassName="active">
                         <motion.a className={styles.link} whileHover={{color: '#d30f54'}} transition={{type: 'spring', duration: '0.3'}}>
-                            The Science Team
+                            Knowledge Base
                         </motion.a>
                     </Link>
                 </li>
