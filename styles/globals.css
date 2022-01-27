@@ -1,17 +1,39 @@
+/* Themes */
+:root { /* default */
+  --foreground-main: #000000;
+  --foreground-faded: #696969;
+  --foreground-borders: #bebebe;
+  --accent-main: #d30f54;
+  --background: #fafafa;
+  --background-transparent: #fafafaf1;
+  --background-transparent-blur: #fafafa70;
+}
+[data-theme='dark'] {
+  --foreground-main: #ffffff;
+  --foreground-faded: #e6e6e6;
+  --foreground-borders: #ffffff;
+  --accent-main: #d35b85;
+  --background: #000000;
+  --background-transparent: #000000cb;
+  --background-transparent-blur: #000000;
+}
+
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: Inter, sans-serif;
-  background: white;
+  background: var(--background);
+  color: var(--foreground-main)
 }
 a {
-  color: #d30f54;
+  color: var(--foreground-main);
   text-underline-offset: 1px;
 }
 
 a:hover {
-  color: #ee115f;
+  color: var(--accent-main);
 }
 
 * {

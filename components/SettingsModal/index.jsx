@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
+import { useTheme } from "next-themes";
 
 const Container = styled.div`
     display: flex;
@@ -14,16 +15,10 @@ const Close = styled(motion.button)`
     position: fixed;
     right: 40px;
     bottom: 40px;
-    color: #000;
+    color: var(--foreground-main);
     background: transparent;
     border: none;
-    .icon {
-        cursor: pointer;
-        :hover {
-            color: #d30f54;
-        }
-    }
-    
+    cursor: pointer;
     `
 
 const Header = styled.h1`
@@ -44,7 +39,8 @@ const Switcher = styled(motion.button)`
     justify-content: flex-end;
     align-items: flex-start;
     border-radius: 15px;
-    border: 1px solid #777777;
+    border: 1px solid var(--foreground-faded);
+    background-color: var(--background-transparent);
     h3 {
         font-family: Inter;
         font-size: 40px;
@@ -74,7 +70,8 @@ const Switcher = styled(motion.button)`
     } */
 `
 
-export default function SettingsModal({ toggleSettings, theme, setTheme }) {
+export default function SettingsModal({ toggleSettings }) {
+    const { theme, setTheme } = useTheme();
     const toggleTheme = () => {
         theme === "light" ? setTheme("dark") : setTheme("light")
     }
@@ -82,7 +79,8 @@ export default function SettingsModal({ toggleSettings, theme, setTheme }) {
         <IconContext.Provider value={{size: '34px'}}>
             <Container>
                 <Close
-                    whileHover={{ color: '#d30f54', scale: 1.05 }}
+                    initial={{ color: 'var(--foreground-main)' }}
+                    whileHover={{ color: 'var(--accent-main)', scale: 1.05 }}
                     whileTap={{ scale : 0.99 }}
                     transition={{ type: 'spring', duration: 0.3 }}
                 >
@@ -91,7 +89,8 @@ export default function SettingsModal({ toggleSettings, theme, setTheme }) {
                 <Header>Settings</Header>
                 <Switcher
                     onClick={toggleTheme}
-                    whileHover={{ scale: 1.05, color: '#d30f54', borderColor: '#d30f54' }}
+                    initial={{ color: 'var(--foreground-main)' }}
+                    whileHover={{ scale: 1.05, color: 'var(--accent-main)', borderColor: 'var(--accent-main)' }}
                     whileTap={{ scale: 0.99 }}
                     transition={{ type: 'spring', duration: 0.3 }}
                 >

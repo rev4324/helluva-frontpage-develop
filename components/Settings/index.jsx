@@ -28,14 +28,14 @@ const Backdrop = styled(motion.div)`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fffffff6;
+    background-color: var(--background-transparent);
     @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        background-color: #ffffffbd;
+        background-color: var(--background-transparent-blur);
         backdrop-filter: blur(20px);
     }
 `
 
-export default function Settings({ theme, setTheme }) {
+export default function Settings() {
     const [clicked, setClicked] = useState(false);
     const toggleSettings = () => {
         setClicked(prev => !prev)
@@ -43,15 +43,16 @@ export default function Settings({ theme, setTheme }) {
     return (
         <IconContext.Provider value={{size: '34px'}}>
             <SettingsIcon
-                whileHover={{ color: '#d30f54', scale: 1.05 }}
+                whileHover={{ color: 'var(--accent-main)', scale: 1.05 }}
                 whileTap={{ scale: 0.99 }}
-                transition={{ type: 'spring', duration: 0.3 }} 
+                transition={{ type: 'spring', duration: 0.3 }}
+                initial={{ color: 'var(--foreground-main)' }}
             >
                 <MdOutlineSettings onClick={toggleSettings} />
             </SettingsIcon>
             {clicked &&
                     <Backdrop>
-                            <SettingsModal toggleSettings={toggleSettings} theme={theme} setTheme={setTheme} />
+                            <SettingsModal toggleSettings={toggleSettings} />
                     </Backdrop>
                 }
         </IconContext.Provider>

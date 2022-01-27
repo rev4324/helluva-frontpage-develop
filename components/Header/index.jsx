@@ -9,28 +9,28 @@ export default function Header() {
             <ul className={styles.headerItems}>
                 <li>
                     <Link href="/" activeClassName="active">
-                        <motion.a className={styles.link} whileHover={{color: '#d30f54'}} transition={{type: 'spring', duration: '0.3'}}>
+                        <motion.a className={styles.link} whileHover={{color: 'var(--accent-main)'}} transition={{type: 'spring', duration: '0.3'}} initial={{ color: 'var(--foreground-main)' }}>
                             Home of sorrow
                         </motion.a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/downloads" activeClassName="active">
-                        <motion.a className={styles.link} whileHover={{color: '#d30f54'}} transition={{type: 'spring', duration: '0.3'}}>
+                        <motion.a className={styles.link} whileHover={{color: 'var(--accent-main)'}} transition={{type: 'spring', duration: '0.3'}} initial={{ color: 'var(--foreground-main)' }}>
                             Downloads
                         </motion.a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/test" activeClassName="active">
-                        <motion.a className={styles.link} whileHover={{color: '#d30f54'}} transition={{type: 'spring', duration: '0.3'}}>
+                        <motion.a className={styles.link} whileHover={{color: 'var(--accent-main)'}} transition={{type: 'spring', duration: '0.3'}} initial={{ color: 'var(--foreground-main)' }}>
                             Blog
                         </motion.a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/team" activeClassName="active">
-                        <motion.a className={styles.link} whileHover={{color: '#d30f54'}} transition={{type: 'spring', duration: '0.3'}}>
+                        <motion.a className={styles.link} whileHover={{color: 'var(--accent-main)'}} transition={{type: 'spring', duration: '0.3'}} initial={{ color: 'var(--foreground-main)' }}>
                             Knowledge Base
                         </motion.a>
                     </Link>

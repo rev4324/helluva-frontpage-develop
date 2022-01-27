@@ -10,14 +10,14 @@ const AccordionSect = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #BEBEBE;
+    border: 1px solid var(--foreground-borders);
     border-radius: 10px;
     margin-bottom: 50px;
     max-width: 800px;
 `
 
 const Row = styled(motion.div)`
-    border-bottom: 1px solid #BEBEBE;
+    border-bottom: 1px solid var(--foreground-borders);
     display: flex;
     flex-direction: column;
     background: transparent;
@@ -34,7 +34,7 @@ const Row = styled(motion.div)`
         border-bottom: 0;
     }
     h3 {
-        color: #696969;
+        color: var(--foreground-faded);
     }
     p {
         margin-top: 0;
@@ -43,7 +43,7 @@ const Row = styled(motion.div)`
     }
     .icon {
         margin-right: 10px;
-        color:#696969;
+        color: var(--foreground-faded);
     }
     .iconContainer {
         display: flex;
@@ -86,7 +86,7 @@ export default function Accordion(props) {
                     return (
                         <Row key={elem.question}>
                             <Question onClick={() => opener(index)} key={index}>
-                                <h3 style={click === index ? { color: '#000' } : null}>
+                                <h3 style={click === index ? { color: '--foreground' } : null}>
                                     <elem.question />
                                 </h3>
                                 <motion.span className='iconContainer'>

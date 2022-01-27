@@ -48,6 +48,9 @@ const Box = styled.main`
   }
 `
 const Logo = styled(HentaiLogo)`
+  * {
+    fill: var(--foreground-main);
+  }
   min-width: 50vw;
   min-height: 2rem;
   height: 3rem;
@@ -97,7 +100,7 @@ export default function Home(props) {
           <Logo />
           <h1 className='header'>Get started with your lewd phone.</h1>
           <Accordion />
-          <SecondaryHeaders href="https://goolag.com" target={"_blank"}>
+          <SecondaryHeaders href="https://goolag.com" target="_blank">
             <h1 className='first'>Leave your boring life, Join us in the <Bloody id='bloody' className='distort'/> school.</h1>
             <h1 className='second'>You’ll not regret it, unlike what <Xda className='distort' id="xda"/> or <Xiaomeme className='distort' id="meme"/> said.</h1>
             <h1 className='third'>Also watch Otokonoko Delivery.</h1>
