@@ -14,6 +14,7 @@ const Box = styled.main`
   display: flex;
   flex-direction: column;
   width: 80%;
+  height: 80vmin;
   align-items: center;
   margin-top: 20%;
   @media only screen and (min-width: 768px) {
@@ -22,7 +23,7 @@ const Box = styled.main`
   }
   .header {
     @media only screen and (min-width: 768px) {
-      font-size: 3.5rem;
+      font-size: 3rem;
       line-height: 58px;
     }
     font-size: 2rem;
@@ -35,10 +36,12 @@ const Box = styled.main`
   }
 `
 const Logo = styled(HentaiLogo)`
-  width: 50vw;
+  min-width: 50vw;
+  min-height: 2rem;
+  height: 3rem;
   margin: 40px;
   @media only screen and (min-width: 768px) {
-    height: 6rem;
+    min-height: 3rem;
   }
 `
 
@@ -57,6 +60,7 @@ export default function Home(props) {
             <h1 className='header'>Get started with your lewd phone.</h1>
           <Accordion /> 
         </Box>
+
       </Main>
     </div>
   )
