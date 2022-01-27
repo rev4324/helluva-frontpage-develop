@@ -59,6 +59,17 @@ const Question = styled(motion.div)`
     cursor: pointer;
 `
 
+const variants = {
+    open: {
+        opacity: 1,
+        height: "auto",
+    },
+    closed: {
+        opacity: 0,
+        height: 0,
+    }
+}
+
 export default function Accordion(props) {
     const [click, setClick] = useState(false)
     const opener = row => {
@@ -86,11 +97,12 @@ export default function Accordion(props) {
                                 </motion.span>
                             </Question>
                             {click === index ?
-                                    <p>
-                                        <elem.answer />
-                                    </p>
-                                : null
-                            }
+                            <AnimatePresence>
+                                <motion.p>
+                                    <elem.answer />
+                                </motion.p>
+                            </AnimatePresence>
+                            : null}
                         </Row>
                     )
                 })}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import motion from 'framer-motion'
+import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
 
@@ -10,7 +10,7 @@ const Container = styled.div`
     height: 70%;
 `
 
-const Close = styled.button`
+const Close = styled(motion.button)`
     position: fixed;
     right: 40px;
     bottom: 40px;
@@ -23,18 +23,19 @@ const Close = styled.button`
             color: #d30f54;
         }
     }
-
-`
+    
+    `
 
 const Header = styled.h1`
     font-size: 64px;
     line-height: 77px;
     letter-spacing: -0.04em;
     text-align: left;
-`
+    `
 
-const Switcher = styled.button`
+const Switcher = styled(motion.button)`
     width: 250px;
+    cursor: pointer;
     height: 300px;
     padding: 35px;
     padding-bottom: 15px;
@@ -66,25 +67,41 @@ const Switcher = styled.button`
         line-height: 29px;
         letter-spacing: -0.045em;
     }
-    :hover {
+    /* :hover {
         background-color: #d30f541d;
         color: #d30f54;
         border-color: #d30f54;
-    }
+    } */
 `
 
-export default function SettingsModal({ toggleSettings }) {
+export default function SettingsModal({ toggleSettings, theme, setTheme }) {
+    const toggleTheme = () => {
+        theme === "light" ? setTheme("dark") : setTheme("light")
+    }
     return (
         <IconContext.Provider value={{size: '34px'}}>
             <Container>
-                <Close>
+                <Close
+                    whileHover={{ color: '#d30f54', scale: 1.05 }}
+                    whileTap={{ scale: 0.99 }}
+                    transition={{ type: 'spring', duration: 0.3 }} 
+                    exit="exit"
+                >
                     <MdClose onClick={toggleSettings} className="icon" />
                 </Close>
                 <Header>Settings</Header>
-                <Switcher>
+                <Switcher
+                    onClick={toggleTheme}
+                    whileHover={{ scale: 1.05, color: '#d30f54', borderColor: '#d30f54' }}
+                    whileTap={{ scale: 0.99 }}
+                    transition={{ type: 'spring', duration: 0.3 }}
+                >
                     <h3>Dark Mode</h3>
                     <p>Status</p>
-                    <p className="mode">Disabled</p>
+                    {theme === "light" ? 
+                    <p className="mode">Disabled</p> :
+                    <p className="mode">Enabled</p>
+                }
                 </Switcher>
             </Container>
         </IconContext.Provider>

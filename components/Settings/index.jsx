@@ -1,7 +1,7 @@
 import { IconContext } from 'react-icons/lib'
 import { MdOutlineSettings } from 'react-icons/md'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import SettingsModal from '../SettingsModal'
 import { useState } from 'react'
 
@@ -16,11 +16,10 @@ const SettingsIcon = styled(motion.button)`
     background: transparent;
     *:hover {
         cursor: pointer;
-        color: #d30f54;
     }
 `
 
-const Backdrop = styled.div`
+const Backdrop = styled(motion.div)`
     position: fixed;
     width: 100%;
     height: 100%;
@@ -36,20 +35,24 @@ const Backdrop = styled.div`
     }
 `
 
-export default function Settings() {
+export default function Settings({ theme, setTheme }) {
     const [clicked, setClicked] = useState(false);
     const toggleSettings = () => {
         setClicked(prev => !prev)
     }
     return (
         <IconContext.Provider value={{size: '34px'}}>
-            <SettingsIcon>
+            <SettingsIcon
+                whileHover={{ color: '#d30f54', scale: 1.05 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ type: 'spring', duration: 0.3 }} 
+            >
                 <MdOutlineSettings onClick={toggleSettings} />
             </SettingsIcon>
             {clicked &&
-                <Backdrop>
-                    <SettingsModal toggleSettings={toggleSettings} />
-                </Backdrop>
-            }
+                    <Backdrop>
+                            <SettingsModal toggleSettings={toggleSettings} theme={theme} setTheme={setTheme} />
+                    </Backdrop>
+                }
         </IconContext.Provider>
 )}
