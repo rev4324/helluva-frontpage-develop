@@ -1,4 +1,5 @@
 export const Data = [
+    // functions are used here to make putting inline links easier
     // use regular anonymous functions instead of arrow functions if you need "this" keyword
     {
         question: () => <>Where can I watch Otokonoko Delivery?</>,
@@ -14,6 +15,6 @@ export const Data = [
     },
     {
         question: () => <>Get support for your phone</>,
-        answer: () => <>You can watch it <a href="#">here</a></>
+        answer: () => <>You can get support <a href="#">here</a></>
     },
 ]
