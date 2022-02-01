@@ -6,9 +6,16 @@ import { ThemeProvider } from 'next-themes'
 
 function App({ Component, pageProps }) {
   const [theme, setTheme] = useState("light")
+  const motionValues = () => {
+    theme === "light" ? {
+      
+    } : {
+
+    }
+  }
   return (
     <ThemeProvider>
-      <Header />
+      <Header theme={theme}/>
         <Component {...pageProps } />
       <Settings theme={theme} setTheme={setTheme} />
     </ThemeProvider>

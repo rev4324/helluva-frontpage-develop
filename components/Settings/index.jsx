@@ -26,6 +26,7 @@ const Backdrop = styled(motion.div)`
     right: 0px;
     bottom: 0px;
     display: flex;
+    z-index: 2000;
     justify-content: center;
     align-items: center;
     background-color: var(--background-transparent);
