@@ -43,10 +43,9 @@ export default function Settings() {
     return (
         <IconContext.Provider value={{size: '34px'}}>
             <SettingsIcon
-                whileHover={{ color: 'var(--accent-main)', scale: 1.05 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.99 }}
                 transition={{ type: 'spring', duration: 0.3 }}
-                initial={{ color: 'var(--foreground-main)' }}
             >
                 <MdOutlineSettings onClick={toggleSettings} />
             </SettingsIcon>

@@ -26,6 +26,7 @@ const Header = styled.h1`
     line-height: 77px;
     letter-spacing: -0.04em;
     text-align: left;
+    color: var(--foreground-main);
     `
 
 const Switcher = styled(motion.button)`
@@ -39,8 +40,11 @@ const Switcher = styled(motion.button)`
     justify-content: flex-end;
     align-items: flex-start;
     border-radius: 15px;
-    border: 1px solid var(--foreground-faded);
+    border: 1px solid var(--foreground-borders);
     background-color: var(--background-transparent);
+    * {
+        color: var(--foreground-secondary)
+    }
     h3 {
         font-family: Inter;
         font-size: 40px;
@@ -63,11 +67,6 @@ const Switcher = styled(motion.button)`
         line-height: 29px;
         letter-spacing: -0.045em;
     }
-    /* :hover {
-        background-color: #d30f541d;
-        color: #d30f54;
-        border-color: #d30f54;
-    } */
 `
 
 export default function SettingsModal({ toggleSettings }) {
@@ -79,8 +78,7 @@ export default function SettingsModal({ toggleSettings }) {
         <IconContext.Provider value={{size: '34px'}}>
             <Container>
                 <Close
-                    initial={{ color: 'var(--foreground-main)' }}
-                    whileHover={{ color: 'var(--accent-main)', scale: 1.05 }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale : 0.99 }}
                     transition={{ type: 'spring', duration: 0.3 }}
                 >
@@ -89,8 +87,8 @@ export default function SettingsModal({ toggleSettings }) {
                 <Header>Settings</Header>
                 <Switcher
                     onClick={toggleTheme}
-                    initial={{ color: 'var(--foreground-main)' }}
-                    whileHover={{ scale: 1.05, color: 'var(--accent-main)', borderColor: 'var(--accent-main)' }}
+                    // initial={{ color: 'var(--foreground-main)' }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.99 }}
                     transition={{ type: 'spring', duration: 0.3 }}
                 >

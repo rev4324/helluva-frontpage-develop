@@ -3,6 +3,7 @@ import LogoSVG from '../../public/svg/scrollablelogo.svg'
 
 const Logo = styled(LogoSVG)`
     display: none;
+    z-index: 1001;
     @media only screen and (min-width: 768px) {
         display: inline;
         position: absolute;
