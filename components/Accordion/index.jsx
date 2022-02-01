@@ -5,7 +5,7 @@ import { IconContext } from 'react-icons/lib'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const AccordionSect = styled(motion.div)`
+const AccordionSect = styled(motion.ul)`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,9 +14,10 @@ const AccordionSect = styled(motion.div)`
     border-radius: 10px;
     margin-bottom: 50px;
     max-width: 800px;
+    padding: 0;
 `
 
-const Row = styled(motion.div)`
+const Row = styled(motion.li)`
     border-bottom: 1px solid var(--foreground-borders);
     display: flex;
     flex-direction: column;
@@ -42,7 +43,7 @@ const Row = styled(motion.div)`
         font-weight: 400;
     }
     .icon {
-        margin-right: 10px;
+        /* margin-right: 10px; */
         color: var(--foreground-faded);
     }
     .iconContainer {
@@ -81,28 +82,31 @@ export default function Accordion(props) {
     }
     return (
         <IconContext.Provider value={{ size: '32px' }}>
-            <AccordionSect>
+            <AccordionSect layout transition={{ type: 'spring', duration: 0.3 }}>
                 {Data.map((elem, index) => {
                     return (
-                        <Row key={elem.question}>
-                            <Question onClick={() => opener(index)} key={index}>
+                        <Row layout key={elem.question} transition={{ type: 'spring', duration: 0.3 }} animate={{ y: 0 }}>
+                            <Question onClick={() => opener(index)} key={index} layout transition={{ type: 'spring', duration: 0.3 }}>
                                 <h3 style={click === index ? { color: 'var(--foreground-main)' } : null}>
                                     <elem.question />
                                 </h3>
-                                <motion.span className='iconContainer'>
-                                    {click === index ?
-                                        <MdKeyboardArrowDown style={click === index ? { color: 'var(--foreground-main)' } : null} className='icon' /> :
-                                        <MdKeyboardArrowUp className='icon' />
-                                    }
+                                <motion.span
+                                    className='iconContainer'
+                                    initial={{ rotateZ: 0 }}
+                                    animate={click === index ? { rotateZ: 180 } : { rotateZ: 0 }}
+                                    transition={{ type: 'spring', duration: 0.3 }}
+                                >
+                                    <MdKeyboardArrowUp
+                                        className='icon'
+                                        style={click === index ? { color: 'var(--foreground-main)' } : null}
+                                    />
                                 </motion.span>
                             </Question>
                             {click === index ?
-                            <AnimatePresence>
-                                <motion.p>
+                                <motion.p layout initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.1 }}>
                                     <elem.answer />
                                 </motion.p>
-                            </AnimatePresence>
-                            : null}
+                                : null}
                         </Row>
                     )
                 })}

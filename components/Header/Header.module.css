@@ -4,6 +4,7 @@
     padding-left: 10vw;
     padding-bottom: 5px;
     position: sticky;
+    z-index: 1000;
     width: 100%;
     top: 0px;
     background-color: var(--background-transparent);
@@ -25,7 +26,6 @@
     width: 4vw;
 }
 .headerItems > li > a {
-    text-decoration: none;
     color: var(--foreground-main);
 }
 
