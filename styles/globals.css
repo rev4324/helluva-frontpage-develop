@@ -1,7 +1,8 @@
 /* Themes */
 :root { /* default */
   --foreground-main: #000000;
-  --foreground-faded: #696969;
+  --foreground-faded: #777777;
+  --foreground-secondary: #151515;
   --foreground-borders: #bebebe;
   --accent-main: #d30f54;
   --background: #fafafa;
@@ -11,10 +12,11 @@
 [data-theme='dark'] {
   --foreground-main: #ffffff;
   --foreground-faded: #e6e6e6;
-  --foreground-borders: #ffffff;
+  --foreground-secondary: #bbbbbb;
+  --foreground-borders: #777777;
   --accent-main: #d35b85;
   --background: #000000;
-  --background-transparent: #000000cb;
+  --background-transparent: #000000;
   --background-transparent-blur: #000000;
 }
 
@@ -29,7 +31,7 @@ body {
 }
 a {
   color: var(--foreground-main);
-  text-underline-offset: 1px;
+  text-underline-offset: 2px;
 }
 
 a:hover {
