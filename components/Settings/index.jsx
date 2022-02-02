@@ -36,7 +36,7 @@ const Backdrop = styled(motion.div)`
     }
 `
 
-export default function Settings() {
+export default function Settings(props) {
     const [clicked, setClicked] = useState(false);
     const toggleSettings = () => {
         setClicked(prev => !prev)
@@ -52,7 +52,7 @@ export default function Settings() {
             </SettingsIcon>
             {clicked &&
                     <Backdrop>
-                            <SettingsModal toggleSettings={toggleSettings} />
+                            <SettingsModal toggleSettings={toggleSettings} getTheme={props.getTheme} />
                     </Backdrop>
                 }
         </IconContext.Provider>

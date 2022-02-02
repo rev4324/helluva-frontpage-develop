@@ -6,7 +6,12 @@ import HentaiLogo from '../public/svg/logotype.svg'
 import Bloody from '../public/svg/bloody.svg'
 import Xda from '../public/svg/xda.svg'
 import Xiaomeme from '../public/svg/meme.svg'
-import Bb from '../public/svg/bb.svg'
+import BloodyDark from '../public/svg/bloodydark.svg'
+import XdaDark from '../public/svg/xdadark.svg'
+import XiaomemeDark from '../public/svg/memedark.svg'
+import ButtonSection from '../components/ButtonSection'
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 const Main = styled.div`
   display: flex;
@@ -54,39 +59,62 @@ const Logo = styled(HentaiLogo)`
   min-width: 50vw;
   min-height: 2rem;
   height: 3rem;
-  margin: 40px;
+  margin: 20px;
+  margin-top: 50px;
   @media only screen and (min-width: 768px) {
     min-height: 3rem;
   }
-`
+  `
+  const SecondaryHeadersStyled = styled.a`
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 250px;
+    h1 {
+      font-family: Inter;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 60,97px;
+      margin-block: 5px;
+      text-align: center;
+      letter-spacing: -0.05em;
+      color: var(--foreground-secondary);
+    }
+    .first {
+      color: var(--accent-main);
+    }
+  `
 
-const SecondaryHeaders = styled.a`
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 250px;
-  h1 {
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 60,97px;
-    margin-block: 5px;
-    text-align: center;
-    letter-spacing: -0.05em;
-    color: #696969;
-  }
-  .first {
-    color: #D30F54;
-  }
-  .bloody {
-    color: transparent;
-  }
-`
+const SecondaryHeaders = (props) => {
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme();
+  useEffect(() => setMounted(true), [])
 
-export default function Home(props) {
-  console.log("props: ", props)
+  if (!mounted) return null
+
+  return (
+    <SecondaryHeadersStyled href="https://goolag.com" target="_blank" rel='noreferrer' style={props.style}>
+      <h1 className='first'>
+        Leave your boring life, Join us in the {resolvedTheme === 'light' ?
+          <Bloody id='bloody' className='distort' /> :
+          <BloodyDark id='bloody' className='distort' />} school.
+      </h1>
+      <h1 className='second'>
+        You’ll not regret it, unlike what {resolvedTheme === 'light' ?
+          <Xda id='xda' className='distort' /> :
+          <XdaDark id='xda' className='distort' />} or {resolvedTheme === 'light' ?
+            <Xiaomeme id='meme' className='distort' /> :
+            <XiaomemeDark id='meme' className='distort' />} said.
+      </h1>
+      <h1 className='third'>Also watch Otokonoko Delivery.</h1>
+    </SecondaryHeadersStyled>
+  )
+}
+
+
+export default function Landing() {
   return (
     <div>
       <Head>
@@ -100,11 +128,8 @@ export default function Home(props) {
           <Logo />
           <h1 className='header'>Get started with your lewd phone.</h1>
           <Accordion />
-          <SecondaryHeaders href="https://goolag.com" target="_blank">
-            <h1 className='first'>Leave your boring life, Join us in the <Bloody id='bloody' className='distort'/> school.</h1>
-            <h1 className='second'>You’ll not regret it, unlike what <Xda className='distort' id="xda"/> or <Xiaomeme className='distort' id="meme"/> said.</h1>
-            <h1 className='third'>Also watch Otokonoko Delivery.</h1>
-          </SecondaryHeaders>
+          <SecondaryHeaders />
+          <ButtonSection />
         </Box>
 
       </Main>

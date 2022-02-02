@@ -9,6 +9,17 @@ const Container = styled.div`
     flex-direction: column;
     width: 65%;
     height: 70%;
+    .mode-comment {
+        margin-top: 5px;
+        margin-bottom: 60px;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: -0.04em;
+        text-align: left;
+    }
 `
 
 const Close = styled(motion.button)`
@@ -19,7 +30,7 @@ const Close = styled(motion.button)`
     background: transparent;
     border: none;
     cursor: pointer;
-    `
+`
 
 const Header = styled.h1`
     font-size: 64px;
@@ -27,7 +38,8 @@ const Header = styled.h1`
     letter-spacing: -0.04em;
     text-align: left;
     color: var(--foreground-main);
-    `
+    margin-bottom: 0;
+`
 
 const Switcher = styled(motion.button)`
     width: 250px;
@@ -43,7 +55,7 @@ const Switcher = styled(motion.button)`
     border: 1px solid var(--foreground-borders);
     background-color: var(--background-transparent);
     * {
-        color: var(--foreground-secondary)
+        color: var(--foreground-main)
     }
     h3 {
         font-family: Inter;
@@ -69,10 +81,12 @@ const Switcher = styled(motion.button)`
     }
 `
 
-export default function SettingsModal({ toggleSettings }) {
+export default function SettingsModal({ toggleSettings, getTheme }) {
     const { theme, setTheme } = useTheme();
     const toggleTheme = () => {
+        console.log("1: ", theme)
         theme === "light" ? setTheme("dark") : setTheme("light")
+        console.log("2: ", theme)
     }
     return (
         <IconContext.Provider value={{size: '34px'}}>
@@ -85,9 +99,12 @@ export default function SettingsModal({ toggleSettings }) {
                     <MdClose onClick={toggleSettings} className="icon" />
                 </Close>
                 <Header>Settings</Header>
+                {theme === "light" ? 
+                    <p className="mode-comment">Need some lamp toggle?</p> :
+                    <p className="mode-comment">Ya’ already edgy.</p>
+                }
                 <Switcher
                     onClick={toggleTheme}
-                    // initial={{ color: 'var(--foreground-main)' }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.99 }}
                     transition={{ type: 'spring', duration: 0.3 }}
@@ -95,9 +112,9 @@ export default function SettingsModal({ toggleSettings }) {
                     <h3>Dark Mode</h3>
                     <p>Status</p>
                     {theme === "light" ? 
-                    <p className="mode">Disabled</p> :
-                    <p className="mode">Enabled</p>
-                }
+                        <p className="mode">Disabled</p> :
+                        <p className="mode">Enabled</p>
+                    }
                 </Switcher>
             </Container>
         </IconContext.Provider>

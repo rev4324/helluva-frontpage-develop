@@ -2,22 +2,26 @@
 :root { /* default */
   --foreground-main: #000000;
   --foreground-faded: #777777;
-  --foreground-secondary: #151515;
+  --foreground-secondary: #979797;
   --foreground-borders: #bebebe;
+  --foreground-borders-faded: #C1C1C1;
   --accent-main: #d30f54;
+  --accent-main-alpha: #d4739599;
   --background: #fafafa;
   --background-transparent: #fafafaf1;
   --background-transparent-blur: #fafafa70;
 }
 [data-theme='dark'] {
-  --foreground-main: #ffffff;
-  --foreground-faded: #e6e6e6;
-  --foreground-secondary: #bbbbbb;
-  --foreground-borders: #777777;
-  --accent-main: #d35b85;
-  --background: #000000;
-  --background-transparent: #000000;
-  --background-transparent-blur: #000000;
+  --foreground-main: #F4F4F4;
+  --foreground-faded: #696969;
+  --foreground-secondary: #bdbdbd;
+  --foreground-borders: #BEBEBE;
+  --foreground-borders-faded: #C1C1C1;
+  --accent-main: #FF5994;
+  --accent-main-alpha: #FF599499;
+  --background: #131313;
+  --background-transparent: #131313;
+  --background-transparent-blur: #131313;
 }
 
 
@@ -28,6 +32,9 @@ body {
   font-family: Inter, sans-serif;
   background: var(--background);
   color: var(--foreground-main)
+}
+*::selection {
+  background-color: var(--accent-main-alpha);
 }
 a {
   color: var(--foreground-main);
