@@ -10,6 +10,8 @@
   --background: #fafafa;
   --background-transparent: #fafafaf1;
   --background-transparent-blur: #fafafa70;
+  --lore-visible: none;
+  --lore-text: #d30f54;
 }
 [data-theme='dark'] {
   --foreground-main: #F4F4F4;
@@ -22,6 +24,8 @@
   --background: #131313;
   --background-transparent: #131313;
   --background-transparent-blur: #131313;
+  --lore-visible: url('/lore.png');
+  --lore-text: #fff;
 }
 
 

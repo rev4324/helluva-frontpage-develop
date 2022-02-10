@@ -12,6 +12,7 @@ import XiaomemeDark from '../public/svg/memedark.svg'
 import ButtonSection from '../components/ButtonSection'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
+import { css } from 'styled-components'
 
 const Main = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const Box = styled.main`
   width: 80%;
   align-items: center;
   margin-top: 20%;
-  margin-bottom: 10%;
+  margin-bottom: 50px;
   @media only screen and (min-width: 768px) {
     margin-top: 60px;
     width: 60%;
@@ -65,7 +66,7 @@ const Logo = styled(HentaiLogo)`
     min-height: 3rem;
   }
   `
-  const SecondaryHeadersStyled = styled.a`
+const SecondaryHeadersStyled = styled.a`
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -87,13 +88,69 @@ const Logo = styled(HentaiLogo)`
     }
   `
 
+const Footer = styled.footer`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: -0.05em;
+    text-align: center;
+    @media only screen and (min-width: 800px) {
+      background: var(--lore-visible) no-repeat;
+      background-size: 100%;
+      aspect-ratio: 16/9;
+    }
+    @media only screen and (max-width: 800px) {
+      height: 40vmax;
+    }
+    * {
+        color: var(--lore-text);
+        text-underline-offset: 3px;
+    }
+    .link {
+        font-size: 2rem;
+    }
+    .portal {
+      width: 50%;
+      margin-top: auto;
+      @media only screen and (max-width: 800px) {
+        width: 90%;
+      }
+    }
+    .copyright {
+      margin-top: auto;
+      padding-bottom: 20px;
+      * {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: -0.07em;
+        text-align: center;
+        margin: 5px;
+      }
+      #rights {
+        font-size: 15px;
+        line-height: 18px;
+      }
+      #property {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+`
+
 const SecondaryHeaders = (props) => {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme } = useTheme();
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return null
-
   return (
     <SecondaryHeadersStyled href="https://goolag.com" target="_blank" rel='noreferrer' style={props.style}>
       <h1 className='first'>
@@ -131,7 +188,17 @@ export default function Landing() {
           <SecondaryHeaders />
           <ButtonSection />
         </Box>
-
+        <Footer>
+            <div className='portal'>
+              <a href='#' target='_blank' rel='noreferrer' className='link'>Mitarbeiterportal</a>
+              <p>Zugänglich innerhalb des internen Netzwerks der Bundesakademie der Roten Winter.
+                Nur für Lehrkräfte, Mitarbeiter und autorisiertes Personal. Bei Problemen wenden Sie sich bitte an <a href='mailto: netztechnik@hentaios.com'>netztechnik@hentaios.com</a></p>
+            </div>
+            <div className='copyright'>
+              <p id='rights'>© 2022 Raphielscape Company. All rights reserved.</p>
+              <p id='property'>Property of the Red Winter Federal Academy.</p>
+            </div>
+        </Footer>
       </Main>
     </div>
   )

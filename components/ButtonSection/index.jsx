@@ -101,31 +101,7 @@ const Button = styled.button`
     }
 `
 
-const MitarbeiterContainer = styled.div`
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    font-family: monospace;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23px;
-    letter-spacing: -0.05em;
-    text-align: center;
-    * {
-        color: var(--accent-main);
-        text-underline-offset: 3px;
-    }
-    @media only screen and (max-width: 800px) {
-        width: 100%;
-    }
-    .link {
-        font-size: 2rem;
-    }
-`
+
 
 export default function ButtonSection() {
     return (
@@ -151,11 +127,6 @@ export default function ButtonSection() {
                     </a>
                 </Button>
             </ButtonContainer>
-            <MitarbeiterContainer>
-                <a href='#' target='_blank' rel='noreferrer' className='link'>Mitarbeiterportal</a>
-                <p>Zugänglich innerhalb des internen Netzwerks der Bundesakademie der Roten Winter.
-    Nur für Lehrkräfte, Mitarbeiter und autorisiertes Personal. Bei Problemen wenden Sie sich bitte an <a href='mailto: netztechnik@hentaios.com'>netztechnik@hentaios.com</a></p>
-            </MitarbeiterContainer>
         </Section>
     )
 }
