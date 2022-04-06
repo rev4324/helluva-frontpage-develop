@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Head from 'next/head'
 import Accordion from '../components/Accordion'
+import MainBox from '../components/MainBox'
+import Box from '../components/Box'
 import ScrollableLogo from '../components/ScrollableLogo'
 import HentaiLogo from '../public/svg/logotype.svg'
 import Bloody from '../public/svg/bloody.svg'
@@ -14,45 +16,8 @@ import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { css } from 'styled-components'
 
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-`
 
-const Box = styled.main`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  align-items: center;
-  margin-top: 20%;
-  margin-bottom: 50px;
-  @media only screen and (min-width: 768px) {
-    margin-top: 60px;
-    width: 60%;
-  }
-  .header {
-    @media only screen and (min-width: 768px) {
-      font-size: 3rem;
-      line-height: 58px;
-    }
-    font-size: 2rem;
-    margin: 0 0 40px 0;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: -0.06em;
-    text-align: center;
-    padding-bottom: 10px;
-  }
-  .distort {
-    height: 40px;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 10px;
-  }
-`
+
 const Logo = styled(HentaiLogo)`
   * {
     fill: var(--foreground-main);
@@ -179,7 +144,7 @@ export default function Landing() {
         <meta name="description" content="HelluvaOS - Pixel from Hell" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main>
+      <MainBox>
         <ScrollableLogo />
         <Box>
           <Logo />
@@ -199,7 +164,7 @@ export default function Landing() {
               <p id='property'>Property of the Red Winter Federal Academy.</p>
             </div>
         </Footer>
-      </Main>
+      </MainBox>
     </div>
   )
 }
