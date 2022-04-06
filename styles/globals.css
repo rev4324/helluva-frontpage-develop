@@ -12,6 +12,7 @@
   --background-transparent-blur: #fafafa70;
   --lore-visible: none;
   --lore-text: #d30f54;
+  --header-height: 60px;
 }
 [data-theme='dark'] {
   --foreground-main: #F4F4F4;
@@ -35,8 +36,13 @@ body {
   margin: 0;
   font-family: Inter, sans-serif;
   background: var(--background);
-  color: var(--foreground-main)
+  color: var(--foreground-main);
 }
+
+#__next {
+  height: 100%;
+}
+
 *::selection {
   background-color: var(--accent-main-alpha);
 }
